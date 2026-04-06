@@ -12,33 +12,44 @@
 <body>
 
 <header class="topo">
-  <button onclick="voltar()">←</button>
+  <button class="btn-topo" onclick="voltar()">←</button>
   <h1 id="titulo-app">🍰 Doces da Gabi</h1>
-  <button onclick="abrirTela('config')">⚙️</button>
+  <button class="btn-topo" onclick="abrirTela('config')">⚙️</button>
 </header>
 
 <main>
 
-<!-- HOME -->
 <section id="home" class="tela ativa">
-  <button onclick="abrirCampanhaAtiva()">🔥 Campanha Ativa</button>
-  <button onclick="abrirTela('campanhas')">📢 Campanhas</button>
-  <button onclick="abrirTela('cadastros')">🧾 Cadastros</button>
-  <button onclick="abrirTela('relatorios')">📊 Relatórios</button>
+
+  <button class="btn principal" onclick="abrirCampanhaAtiva()">
+    🔥 Campanha Ativa
+  </button>
+
+  <button class="btn" onclick="abrirTela('campanhas')">
+    📢 Campanhas
+  </button>
+
+  <button class="btn" onclick="abrirTela('cadastros')">
+    🧾 Cadastros
+  </button>
+
+  <button class="btn" onclick="abrirTela('relatorios')">
+    📊 Relatórios
+  </button>
+
 </section>
 
-<!-- CAMPANHAS -->
 <section id="campanhas" class="tela">
-  <h2>Campanhas</h2>
+  <h2>📢 Campanhas</h2>
 
-  <input id="nome-campanha" placeholder="Nome">
+  <input id="nome-campanha" placeholder="Nome da campanha">
   <input id="data-campanha" type="date">
-  <button onclick="criarCampanha()">Salvar</button>
+
+  <button class="btn principal" onclick="criarCampanha()">Salvar</button>
 
   <div id="lista-campanhas"></div>
 </section>
 
-<!-- CAMPANHA -->
 <section id="campanha" class="tela">
   <h2 id="titulo-campanha"></h2>
 
@@ -47,51 +58,59 @@
   <select id="produto"></select>
   <input id="quantidade" type="number" value="1">
 
-  <button onclick="addItem()">Adicionar Item</button>
+  <button class="btn" onclick="addItem()">➕ Adicionar Item</button>
 
   <div id="itens"></div>
 
-  <button onclick="salvarPedido()">Salvar Pedido</button>
+  <button class="btn principal" onclick="salvarPedido()">Salvar Pedido</button>
 </section>
 
-<!-- CADASTROS -->
 <section id="cadastros" class="tela">
-  <button onclick="abrirTela('produtos')">Produtos</button>
-  <button onclick="abrirTela('clientes')">Clientes</button>
+  <h2>🧾 Cadastros</h2>
+
+  <button class="btn" onclick="abrirTela('produtos')">🍰 Produtos</button>
+  <button class="btn" onclick="abrirTela('clientes')">👤 Clientes</button>
 </section>
 
-<!-- PRODUTOS -->
 <section id="produtos" class="tela">
-  <input id="nome-produto" placeholder="Produto">
+  <h2>🍰 Produtos</h2>
+
+  <input id="nome-produto" placeholder="Nome do produto">
   <input id="preco-produto" placeholder="Preço">
-  <button onclick="salvarProduto()">Salvar</button>
+
+  <button class="btn principal" onclick="salvarProduto()">Salvar</button>
+
   <div id="lista-produtos"></div>
 </section>
 
-<!-- CLIENTES -->
 <section id="clientes" class="tela">
-  <input id="nome-cliente" placeholder="Cliente">
-  <button onclick="salvarCliente()">Salvar</button>
+  <h2>👤 Clientes</h2>
+
+  <input id="nome-cliente" placeholder="Nome do cliente">
+
+  <button class="btn principal" onclick="salvarCliente()">Salvar</button>
+
   <div id="lista-clientes"></div>
 </section>
 
-<!-- RELATÓRIOS -->
 <section id="relatorios" class="tela">
-  <h2>Relatórios</h2>
+  <h2>📊 Relatórios</h2>
 
   <input id="mes" placeholder="Mês">
   <input id="ano" placeholder="Ano">
 
-  <button onclick="gerarRelatorio()">Gerar</button>
+  <button class="btn principal" onclick="gerarRelatorio()">Gerar</button>
 
   <div id="resultado"></div>
 </section>
 
-<!-- CONFIG -->
 <section id="config" class="tela">
+  <h2>⚙️ Configuração</h2>
+
   <input id="config-url" placeholder="Supabase URL">
   <input id="config-key" placeholder="Anon Key">
-  <button onclick="salvarConfig()">Salvar</button>
+
+  <button class="btn principal" onclick="salvarConfig()">Salvar</button>
 </section>
 
 </main>
