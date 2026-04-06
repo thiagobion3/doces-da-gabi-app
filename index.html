@@ -1,126 +1,41 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doces da Gabi</title>
+<div class="container">
 
-<link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
+  <div class="title">Doces da Gabi</div>
+  <button class="sync-btn">Sync</button>
 
-<body>
+  <p>Seu atalho diário para vender mais com carinho.</p>
 
-<header class="topo">
-  <button class="btn-topo" onclick="voltar()">←</button>
-  <h1 id="titulo-app">🍰 Doces da Gabi</h1>
-  <button class="btn-topo" onclick="abrirTela('config')">⚙️</button>
-</header>
+  <div class="grid">
 
-<main>
+    <div class="card primary" onclick="novoPedido()">
+      <span>➕</span>
+      Novo Pedido
+    </div>
 
-<section id="home" class="tela ativa">
+    <div class="card" onclick="verPedidos()">
+      <span>📦</span>
+      Pedidos
+    </div>
 
-  <button class="btn principal" onclick="abrirCampanhaAtiva()">
-    🔥 Campanha Ativa
-  </button>
+    <div class="card" onclick="verReservas()">
+      <span>📅</span>
+      Reservas
+    </div>
 
-  <button class="btn" onclick="abrirTela('campanhas')">
-    📢 Campanhas
-  </button>
+    <div class="card" onclick="verRelatorios()">
+      <span>📊</span>
+      Relatórios
+    </div>
 
-  <button class="btn" onclick="abrirTela('cadastros')">
-    🧾 Cadastros
-  </button>
+    <div class="card" onclick="verProdutos()">
+      <span>🍰</span>
+      Produtos
+    </div>
 
-  <button class="btn" onclick="abrirTela('relatorios')">
-    📊 Relatórios
-  </button>
+    <div class="card" onclick="verClientes()">
+      <span>👤</span>
+      Clientes
+    </div>
 
-</section>
-
-<section id="campanhas" class="tela">
-  <h2>📢 Campanhas</h2>
-
-  <input id="nome-campanha" placeholder="Nome da campanha">
-  <input id="data-campanha" type="date">
-
-  <button class="btn principal" onclick="criarCampanha()">Salvar</button>
-
-  <div id="lista-campanhas"></div>
-</section>
-
-<section id="campanha" class="tela">
-  <h2 id="titulo-campanha"></h2>
-
-  <input id="cliente" placeholder="Cliente">
-
-  <select id="produto"></select>
-  <input id="quantidade" type="number" value="1">
-
-  <button class="btn" onclick="addItem()">➕ Adicionar Item</button>
-
-  <div id="itens"></div>
-
-  <button class="btn principal" onclick="salvarPedido()">Salvar Pedido</button>
-</section>
-
-<section id="cadastros" class="tela">
-  <h2>🧾 Cadastros</h2>
-
-  <button class="btn" onclick="abrirTela('produtos')">🍰 Produtos</button>
-  <button class="btn" onclick="abrirTela('clientes')">👤 Clientes</button>
-</section>
-
-<section id="produtos" class="tela">
-  <h2>🍰 Produtos</h2>
-
-  <input id="nome-produto" placeholder="Nome do produto">
-  <input id="preco-produto" placeholder="Preço">
-
-  <button class="btn principal" onclick="salvarProduto()">Salvar</button>
-
-  <div id="lista-produtos"></div>
-</section>
-
-<section id="clientes" class="tela">
-  <h2>👤 Clientes</h2>
-
-  <input id="nome-cliente" placeholder="Nome do cliente">
-
-  <button class="btn principal" onclick="salvarCliente()">Salvar</button>
-
-  <div id="lista-clientes"></div>
-</section>
-
-<section id="relatorios" class="tela">
-  <h2>📊 Relatórios</h2>
-
-  <input id="mes" placeholder="Mês">
-  <input id="ano" placeholder="Ano">
-
-  <button class="btn principal" onclick="gerarRelatorio()">Gerar</button>
-
-  <div id="resultado"></div>
-</section>
-
-<section id="config" class="tela">
-  <h2>⚙️ Configuração</h2>
-
-  <input id="config-url" placeholder="Supabase URL">
-  <input id="config-key" placeholder="Anon Key">
-
-  <button class="btn principal" onclick="salvarConfig()">Salvar</button>
-</section>
-
-</main>
-
-<footer>
-  © 2026 by Bion
-</footer>
-
-<script src="supabase.js"></script>
-<script src="app.js"></script>
-
-</body>
-</html>
+  </div>
+</div>
