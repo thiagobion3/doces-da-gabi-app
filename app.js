@@ -5,7 +5,6 @@ let itens = [];
 // INIT
 function iniciar() {
   const cfg = JSON.parse(localStorage.getItem("cfg"));
-
   if (!cfg) return;
 
   supabase = window.supabase.createClient(cfg.url, cfg.key);
@@ -14,7 +13,7 @@ function iniciar() {
   carregarProdutos();
 }
 
-// NAVEGAÇÃO
+// NAV
 function abrirTela(id) {
   document.querySelectorAll(".tela").forEach(t => t.classList.remove("ativa"));
   document.getElementById(id).classList.add("ativa");
@@ -51,7 +50,8 @@ async function carregarCampanhas() {
 
   data.forEach(c => {
     const btn = document.createElement("button");
-    btn.innerText = c.nome;
+    btn.className = "btn";
+    btn.innerText = `${c.nome} - ${c.data}`;
     btn.onclick = () => abrirCampanha(c);
     div.appendChild(btn);
   });
@@ -104,8 +104,8 @@ async function salvarCliente() {
 async function carregarClientes() {
   const { data } = await supabase.from("clientes").select("*");
 
-  const lista = document.getElementById("lista-clientes");
-  lista.innerHTML = data.map(c => `<div>${c.nome}</div>`).join("");
+  document.getElementById("lista-clientes").innerHTML =
+    data.map(c => `<div>${c.nome}</div>`).join("");
 }
 
 // PEDIDOS
@@ -121,12 +121,13 @@ function addItem() {
 }
 
 function renderItens() {
-  const div = document.getElementById("itens");
-  div.innerHTML = itens.map((i, idx) => `
-    <div>${i.nome} x ${i.qtd} 
-      <button onclick="removerItem(${idx})">❌</button>
-    </div>
-  `).join("");
+  document.getElementById("itens").innerHTML =
+    itens.map((i, idx) => `
+      <div>
+        ${i.nome} x ${i.qtd}
+        <button onclick="removerItem(${idx})">❌</button>
+      </div>
+    `).join("");
 }
 
 function removerItem(i) {
@@ -172,7 +173,7 @@ async function abrirCampanhaAtiva() {
   abrirCampanha(data);
 }
 
-// RELATORIO SIMPLES
+// RELATORIO
 async function gerarRelatorio() {
   const { data } = await supabase.from("pedidos").select("*");
 
