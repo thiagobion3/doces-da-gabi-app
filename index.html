@@ -1,41 +1,62 @@
-<div class="container">
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doces da Gabi</title>
 
-  <div class="title">Doces da Gabi</div>
-  <button class="sync-btn">Sync</button>
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
 
-  <p>Seu atalho diário para vender mais com carinho.</p>
+<body>
 
-  <div class="grid">
+<header class="topo">
+  <h1>🍰 Doces da Gabi</h1>
+  <button class="btn-sync">Sync</button>
+</header>
 
-    <div class="card primary" onclick="novoPedido()">
-      <span>➕</span>
-      Novo Pedido
-    </div>
+<main>
 
-    <div class="card" onclick="verPedidos()">
-      <span>📦</span>
-      Pedidos
-    </div>
+<section class="hero">
+  <h2>Seu atalho diário para vender mais com carinho.</h2>
+  <p>Escolha uma ação rápida para registrar pedidos, acompanhar reservas e cuidar de cada detalhe.</p>
+</section>
 
-    <div class="card" onclick="verReservas()">
-      <span>📅</span>
-      Reservas
-    </div>
+<section class="grid">
 
-    <div class="card" onclick="verRelatorios()">
-      <span>📊</span>
-      Relatórios
-    </div>
+  <button class="card principal">
+    <span class="icone">➕</span>
+    <span>Novo Pedido</span>
+  </button>
 
-    <div class="card" onclick="verProdutos()">
-      <span>🍰</span>
-      Produtos
-    </div>
+  <button class="card">
+    <span class="icone">📦</span>
+    <span>Pedidos</span>
+  </button>
 
-    <div class="card" onclick="verClientes()">
-      <span>👤</span>
-      Clientes
-    </div>
+  <button class="card">
+    <span class="icone">📅</span>
+    <span>Reservas</span>
+  </button>
 
-  </div>
-</div>
+  <button class="card">
+    <span class="icone">📊</span>
+    <span>Relatórios</span>
+  </button>
+
+  <button class="card">
+    <span class="icone">🍰</span>
+    <span>Produtos</span>
+  </button>
+
+  <button class="card">
+    <span class="icone">👤</span>
+    <span>Clientes</span>
+  </button>
+
+</section>
+
+</main>
+
+</body>
+</html>
