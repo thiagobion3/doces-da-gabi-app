@@ -1,62 +1,136 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doces da Gabi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doces da Gabi</title>
 
-<link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
 <header class="topo">
-  <h1>🍰 Doces da Gabi</h1>
-  <button class="btn-sync">Sync</button>
+  <button id="btn-voltar" class="btn-topo hidden">←</button>
+  <h1 id="titulo-tela">🍰 Doces da Gabi</h1>
+  <button class="btn-topo">Sync</button>
 </header>
 
 <main>
 
-<section class="hero">
-  <h2>Seu atalho diário para vender mais com carinho.</h2>
-  <p>Escolha uma ação rápida para registrar pedidos, acompanhar reservas e cuidar de cada detalhe.</p>
+<!-- HOME BONITA -->
+<section id="screen-home" class="screen active">
+
+  <div class="hero">
+    <h2>Seu atalho diário para vender mais com carinho.</h2>
+    <p class="descricao">
+      Escolha uma ação rápida para registrar pedidos, acompanhar reservas e cuidar de cada detalhe.
+    </p>
+  </div>
+
+  <div class="grid-home">
+
+    <button class="card-home principal" data-screen="pedidos">
+      <span class="icone">➕</span>
+      <span>Novo Pedido</span>
+    </button>
+
+    <button class="card-home" data-screen="pedidos">
+      <span class="icone">📦</span>
+      <span>Pedidos</span>
+    </button>
+
+    <button class="card-home" data-screen="reservas">
+      <span class="icone">📅</span>
+      <span>Reservas</span>
+    </button>
+
+    <button class="card-home" data-screen="relatorios">
+      <span class="icone">📊</span>
+      <span>Relatórios</span>
+    </button>
+
+    <button class="card-home" data-screen="produtos">
+      <span class="icone">🍰</span>
+      <span>Produtos</span>
+    </button>
+
+    <button class="card-home" data-screen="clientes">
+      <span class="icone">👤</span>
+      <span>Clientes</span>
+    </button>
+
+    <button class="card-home" data-screen="campanhas">
+      <span class="icone">📢</span>
+      <span>Campanhas</span>
+    </button>
+
+  </div>
 </section>
 
-<section class="grid">
+<!-- PRODUTOS -->
+<section id="screen-produtos" class="screen">
+  <h2>Produtos</h2>
 
-  <button class="card principal">
-    <span class="icone">➕</span>
-    <span>Novo Pedido</span>
-  </button>
+  <input id="produto-nome" placeholder="Nome do produto">
+  <input id="produto-preco" placeholder="Preço">
 
-  <button class="card">
-    <span class="icone">📦</span>
-    <span>Pedidos</span>
-  </button>
+  <button onclick="salvarProduto()">Salvar</button>
 
-  <button class="card">
-    <span class="icone">📅</span>
-    <span>Reservas</span>
-  </button>
+  <div id="lista-produtos"></div>
+</section>
 
-  <button class="card">
-    <span class="icone">📊</span>
-    <span>Relatórios</span>
-  </button>
+<!-- CLIENTES -->
+<section id="screen-clientes" class="screen">
+  <h2>Clientes</h2>
 
-  <button class="card">
-    <span class="icone">🍰</span>
-    <span>Produtos</span>
-  </button>
+  <input id="cliente-nome" placeholder="Nome do cliente">
 
-  <button class="card">
-    <span class="icone">👤</span>
-    <span>Clientes</span>
-  </button>
+  <button onclick="salvarCliente()">Salvar</button>
 
+  <div id="lista-clientes"></div>
+</section>
+
+<!-- PEDIDOS -->
+<section id="screen-pedidos" class="screen">
+  <h2>Pedidos</h2>
+
+  <input id="pedido-cliente" placeholder="Cliente">
+  <select id="pedido-produto"></select>
+  <input id="pedido-quantidade" type="number" value="1">
+
+  <button onclick="addItem()">Adicionar Item</button>
+
+  <div id="itens"></div>
+
+  <button onclick="salvarPedido()">Salvar Pedido</button>
+</section>
+
+<!-- RELATORIOS -->
+<section id="screen-relatorios" class="screen">
+  <h2>Relatórios</h2>
+
+  <button onclick="gerarRelatorio()">Gerar</button>
+
+  <div id="resultado"></div>
+</section>
+
+<!-- CAMPANHAS -->
+<section id="screen-campanhas" class="screen">
+  <h2>Campanhas</h2>
+
+  <input id="nome-campanha" placeholder="Nome">
+  <input id="data-campanha" type="date">
+
+  <button onclick="criarCampanha()">Salvar</button>
+
+  <div id="lista-campanhas"></div>
 </section>
 
 </main>
+
+<script src="app.js"></script>
 
 </body>
 </html>
